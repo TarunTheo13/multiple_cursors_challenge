@@ -1,3 +1,5 @@
+const fpsLoop = require ('./fpsLoop.js');
+
 class Actor {
   #state;
   #inbox;
@@ -49,5 +51,7 @@ Supervisor.send({ req: 'add_actor', type: 'destroyer', name: 'Harry' });
 let Loop = () => { 
   Supervisor.processInbox();
   setTimeout(Loop, 0);
+  fpsLoop();
 };
+
 Loop()
