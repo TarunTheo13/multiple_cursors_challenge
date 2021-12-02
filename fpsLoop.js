@@ -6,4 +6,4 @@ let fpsLoop = () => {
   console.log(fps);
 }
 
-module.exports = fpsLoop;
+export { fpsLoop };

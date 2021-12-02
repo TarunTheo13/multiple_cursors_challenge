@@ -1,4 +1,4 @@
-const fpsLoop = require ('./fpsLoop.js');
+import { fpsLoop } from './fpsLoop.js';
 
 class Actor {
   #state;
@@ -42,7 +42,7 @@ const addActor = (message, self) => {
   }
   return { children };
 }
-  
+
 const Supervisor = new Actor('supervisor');
 Supervisor.addProccessor(addActor);
 Supervisor.send({ req: 'add_actor', type: 'generator', name: 'Bob' });
@@ -51,7 +51,7 @@ Supervisor.send({ req: 'add_actor', type: 'destroyer', name: 'Harry' });
 let Loop = () => { 
   Supervisor.processInbox();
   setTimeout(Loop, 0);
-  fpsLoop();
+  //fpsLoop();
 };
 
 Loop()
