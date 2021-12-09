@@ -3,18 +3,19 @@ import { fpsLoop } from './fpsLoop.js';
 class Actor {
   #state;
   #inbox;
-  #proccesors;
+  #procesors;
   name;
 
   constructor(name) {
     this.#state = {};
     this.#inbox = [];
-    this.#proccesors = [];
+    this.#procesors = [];
     this.name = name;
   }
 
-  getstate() {
-    return { ...this.#state };
+  getstate(key) {
+    if ( key===undefined) return { ...this.#state };
+    if ( (typeof key)==='string' ) return this.#state[key]
   }
 
   send(message) {
@@ -24,12 +25,12 @@ class Actor {
   processInbox() {
     if (!this.#inbox.length) {return};
     let message = this.#inbox.shift();
-    console.log(message);
-    this.#proccesors.forEach(process => { this.#state = { ...this.#state, ...process(message, this)} });
+    //console.log(message);
+    this.#procesors.forEach(process => { this.#state = { ...this.#state, ...process(message, this)} });
   }
 
-  addProccessor(func) {
-    this.#proccesors.push(func);
+  addProcessor(func) {
+    this.#procesors.push(func);
   }
 }
 
@@ -42,11 +43,11 @@ const addActor = (message, self) => {
   return { children };
 }
 
-
 window.Supervisor = new Actor('supervisor');
-Supervisor.addProccessor(addActor);
+Supervisor.addProcessor(addActor);
 Supervisor.send({ req: 'add_actor', type: 'generator', name: 'Bob' });
 Supervisor.send({ req: 'add_actor', type: 'destroyer', name: 'Harry' });
+Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name: 'mymouse' });
 
 let Loop = () => { 
   Supervisor.processInbox();
