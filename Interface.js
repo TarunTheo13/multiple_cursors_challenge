@@ -23,6 +23,7 @@ window.addEventListener('mousemove', (e) => {
   } else {
     let message = {x: e.x, y: e.y};
     myMouseActor.send(message);
+    socket.send(JSON.stringify({uid, ...message}));
   }
 });
 
