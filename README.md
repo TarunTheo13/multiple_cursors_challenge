@@ -17,3 +17,28 @@ Challenge -- each client sees every other client's mouse cursor
       a. corresponding coordinate-actors get updated
     5. when self-client unspawns, the supervisor-actor publishes remove event to actor-list log on server
     6. destroyer actor destroys stale coordinate-actors after M seconds
+
+```mermaid
+classDiagram
+    index <|-- Actor
+    index <|-- Interface
+    index <|-- WebSocket
+    index : style
+    index : body
+    class Actor{
+        #state
+        #inbox
+        #procesors
+        name
+        getstate(key)
+        send(message) 
+        processInbox() 
+        addProcessor(func)
+        +addActor(message, self)
+        +Loop()
+    }
+    class Interface{
+    }
+    class WebSocket{
+    }
+```

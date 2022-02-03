@@ -11,6 +11,5 @@ wss.on('connection', function connection(ws, req) {
   // console.log(req.socket.remoteAddress)
   ws.index = clients.length;
   clients.push(ws);
-  ws.send('something');
   console.log('New client connection, no: ', ws.index)
 });
