@@ -31,7 +31,7 @@ Challenge -- each client sees every other client's mouse cursor
 
 ```mermaid
 graph TD
-    U[Supervisor Actor] -->|addActor: mouse-coordinate| M[mymouse]
+    U[Supervisor Actor] -->|addActor: mouse-coordinate| M[mymouse Actor]
     W[WebSocket client]
     O[on mousemove] -->|message: x, y| M
     S[WebSocket server] -->|uid & coordinate array| W
