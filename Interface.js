@@ -26,5 +26,3 @@ window.addEventListener('mousemove', (e) => {
     socket.send(JSON.stringify({uid, ...message}));
   }
 });
-
-//next step is adding another cursor over the network

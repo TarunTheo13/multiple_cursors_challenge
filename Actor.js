@@ -49,13 +49,12 @@ Supervisor.send({ req: 'add_actor', type: 'generator', name: 'Bob' });
 Supervisor.send({ req: 'add_actor', type: 'destroyer', name: 'Harry' });
 Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name: 'mymouse' });
 
-let Loop = () => { 
+let actorLoop = () => { 
   Supervisor.processInbox();
   Object.values(Supervisor.getstate().children).forEach(child => {child.processInbox()});
-  setTimeout(Loop, 0);
+  setTimeout(actorLoop, 0);
   //fpsLoop();
 };
 
-Loop()
-
+actorLoop()
 export { Actor };
