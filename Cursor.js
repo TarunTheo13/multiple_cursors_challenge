@@ -3,7 +3,6 @@ import { Actor } from './Actor.js';
 let myMouseActor = false;
 
 const coordinateProcessor = (message, self) => {
-  console.log('happy coordinate processor')
   let cursor = self.getstate('cursor');
   if (!cursor) {
     cursor = document.createElement('div');
