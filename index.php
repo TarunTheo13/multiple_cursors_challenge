@@ -13,7 +13,8 @@
   <body>
     <h1>Multiple Cursors Challenge</h1>
   </body>
-  <script src="Actor.js" type='module'></script>
+  <!-- <script src="Actor.js" type='module'></script> -->
   <script src="Cursor.js" type='module'></script>
   <script src="WebSocket.js"></script>
+  <script src="Main.js" type='module'></script>
 </HTML>
