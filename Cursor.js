@@ -1,6 +1,9 @@
 import { Actor } from './Actor.js';
 
+let myMouseActor = false;
+
 const coordinateProcessor = (message, self) => {
+  console.log('happy coordinate processor')
   let cursor = self.getstate('cursor');
   if (!cursor) {
     cursor = document.createElement('div');
@@ -14,7 +17,7 @@ const coordinateProcessor = (message, self) => {
 
 const modifyMouseActor = (name, x, y) => {
   if (!myMouseActor) {
-    Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name: 'mymouse' });
+    // Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name: 'mymouse' });
     const newMouseActor = Supervisor.getstate('children')[name];
     if (!newMouseActor) { return };
     myMouseActor = newMouseActor;

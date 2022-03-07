@@ -8,8 +8,8 @@ socket.addEventListener('open', function (event) {
     socket.send('{"msg": "Hello Server!"}');
 });
 
-// // Listen for messages
+// Listen for messages
 socket.addEventListener('message', function (event) {
-    console.log('Message from server ', JSON.parse(event.data));
+    // console.log('Message from server ', JSON.parse(event.data));
     // Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name: 'mymouse' });
 });

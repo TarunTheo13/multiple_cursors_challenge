@@ -6,6 +6,7 @@ Challenge -- each client sees every other client's mouse cursor
     3. destroyer-actor is responsible for removing coordinate-actors
     
   Use fetch (AJAX) to log per client files via PHP script on a public server (test locally between to browser tabs)
+
     1. when self-client spawns, the supervisor-actor publishes self to actor-list log on server
 
       a. returns a UID from server
@@ -38,6 +39,27 @@ graph TD
     O  -->|uid, message: x, y| S
     M --> D{DOM}
 ```
+
+<!-- ## How to run the program
+
+1. Clone repository: 'git clone https://github.com/TarunTheo13/multiple_cursors_challenge.git'
+2. Run: 'php -S 0.0.0.0:80 &' 
+3. Run websocket server: 'node WebSocketServer.js'-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- ## Class Diagram
 
