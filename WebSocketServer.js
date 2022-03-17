@@ -1,6 +1,7 @@
 const ws_ = require('ws');
 
 const wss = new ws_.WebSocketServer({ port: 8080 });
+console.log('listening on port 8080');
 const clients = [];
 
 wss.on('connection', function connection(ws, req) {

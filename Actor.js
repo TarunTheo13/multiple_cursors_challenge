@@ -30,7 +30,11 @@ class Actor {
   }
 
   addProcessor(func) {
-    this.#procesors.push(func);
+    if (this.#procesors.indexOf(func) !== -1) {
+      console.info('Function with this name already exists:', func.name);
+    }else{
+      this.#procesors.push(func);
+    }
   }
 }
 

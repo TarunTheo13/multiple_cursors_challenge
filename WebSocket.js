@@ -1,7 +1,9 @@
-// Create WebSocket connection.
-const socket = new WebSocket('ws://localhost:8080');
+import { modifyMouseActor } from "./Cursor.js";
 
-const uid = Math.random();
+// Create WebSocket connection.
+window.socket = new WebSocket('ws://localhost:8080');
+
+window.uid = Math.random();
 
 // Connection opened
 socket.addEventListener('open', function (event) {
@@ -10,6 +12,13 @@ socket.addEventListener('open', function (event) {
 
 // Listen for messages
 socket.addEventListener('message', function (event) {
-    console.log('Message from server ', JSON.parse(event.data));
-    // Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name: 'mymouse' });
+    const coordinates = JSON.parse(event.data);
+    if (coordinates.uid == self.uid) { return }
+    let name = 'mouse' + coordinates.uid;
+    if (Supervisor.getstate('children')[name]) {
+        modifyMouseActor(name, coordinates.x, coordinates.y);
+    }else{
+        Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name });
+    }
+    
 });

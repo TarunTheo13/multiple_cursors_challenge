@@ -15,6 +15,6 @@
   </body>
   <!-- <script src="Actor.js" type='module'></script> -->
   <script src="Cursor.js" type='module'></script>
-  <script src="WebSocket.js"></script>
+  <script src="WebSocket.js" type='module'></script>
   <script src="Main.js" type='module'></script>
 </HTML>
