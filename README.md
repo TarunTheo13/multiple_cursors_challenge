@@ -43,7 +43,7 @@ graph TD
 <!-- ## How to run the program
 
 1. Clone repository: 'git clone https://github.com/TarunTheo13/multiple_cursors_challenge.git'
-2. Run: 'php -S 0.0.0.0:80 &' 
+2. Run: 'php -S 0.0.0.0:80 > /dev/null 2>&1 &' 
 3. Run websocket server: 'node WebSocketServer.js'-->
 
 

@@ -23,10 +23,10 @@ class Actor {
   }
 
   processInbox() {
-    if (!this.#inbox.length) {return};
-    let message = this.#inbox.shift();
-    //console.log(message);
-    this.#procesors.forEach(process => { this.#state = { ...this.#state, ...process(message, this)} });
+    while (this.#inbox.length) {
+      let message = this.#inbox.shift();
+      this.#procesors.forEach(process => { this.#state = { ...this.#state, ...process(message, this)} }); 
+    }
   }
 
   addProcessor(func) {

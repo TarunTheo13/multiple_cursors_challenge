@@ -13,7 +13,7 @@ socket.addEventListener('open', function (event) {
 // Listen for messages
 socket.addEventListener('message', function (event) {
     const coordinates = JSON.parse(event.data);
-    if (coordinates.uid == self.uid) { return }
+    if (coordinates.uid == self.uid || !coordinates.uid) { return };
     let name = 'mouse' + coordinates.uid;
     if (Supervisor.getstate('children')[name]) {
         modifyMouseActor(name, coordinates.x, coordinates.y);
