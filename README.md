@@ -37,7 +37,11 @@ graph TD
     O[on mousemove] -->|message: x, y| M
     S[WebSocket server] -->|uid & coordinate array| W
     O  -->|uid, message: x, y| S
-    M --> D{DOM}
+    M --> |displays my cursor|D{DOM}
+    W -->|addActor: mouse-coordinate| C[Client mouse Actors]
+    W -->|message: x, y| C
+    C -->|displays other cursors| D
+    DB[Database] -->|Ring|D
 ```
 
 <!-- ## How to run the program
