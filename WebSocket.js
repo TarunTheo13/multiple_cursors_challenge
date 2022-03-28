@@ -16,7 +16,7 @@ socket.addEventListener('message', function (event) {
     if (coordinates.uid == self.uid || !coordinates.uid) { return };
     let name = 'mouse' + coordinates.uid;
     if (Supervisor.getstate('children')[name]) {
-        modifyMouseActor(name, coordinates.x, coordinates.y);
+        modifyMouseActor(name, coordinates.x, coordinates.y, coordinates.uid);
     }else{
         Supervisor.send({ req: 'add_actor', type: 'mouse-coordinate', name });
     }

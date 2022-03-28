@@ -3,7 +3,7 @@ const coordinateProcessor = (message, self) => {
   if (!cursor) {
     cursor = document.createElement('div');
     cursor.setAttribute('class', 'cursor');
-    cursor.style.background = `rgb(${[randNum(), randNum(), randNum()]})`
+    cursor.style.background = setColour(message.uid);
     document.body.appendChild(cursor);
     return { cursor };
   }
@@ -11,8 +11,9 @@ const coordinateProcessor = (message, self) => {
   cursor.style.left = `${message.x}px`;
 }
 
-const randNum = () => {
-  return Math.floor(Math.random() * 256)
+const setColour = (uid) => {
+  const uidColour = Math.floor(uid*16777215).toString(16);
+  return "#" + uidColour;
 }
 
 export { coordinateProcessor }
