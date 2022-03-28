@@ -17,4 +17,5 @@
   <script src="Cursor.js" type='module'></script>
   <script src="WebSocket.js" type='module'></script>
   <script src="Main.js" type='module'></script>
+  <script>DBobject = <?php require('readDB.php') ?> </script>
 </HTML>
